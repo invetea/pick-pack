@@ -1,0 +1,90 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pick & Pack</title>
+  <link rel="stylesheet" href="https://sdk.ttcdn.co/tt-uikit-0.11.0.css">
+  <style>
+	.bignumber {
+		font-size: 28px;
+		font-weight: 800;
+		color: #5b6268;
+	}  
+  </style>
+</head>
+<body>
+	<div class="app-container">
+
+		<header>
+			<h1>Pick & Pack</h1>
+			<nav class="navbar">
+				<ul class="nav navbar-nav tab-toggle">
+					<li><a data-toggle="tab" data-parent="#setup" href="#tabPick" class="active picklink">Pick</a></li>
+					<li><a data-toggle="tab" data-parent="#setup" href="#tabPack" class="packlink">Pack</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<div class="tab-content">
+
+			<div class="tab-pane hidden active" id="tabPick">
+				<div class="row">
+					<div class="col-sm-3 col-md-3">&nbsp;</div>
+					<div class="col-sm-3 col-md-3"><center><div class="bignumber items2pick">0</div> <small>Items</small></center></div>
+					<div class="col-sm-3 col-md-3"><center><div class="bignumber products2pick">0</div> <small>Products</small></center></div>
+				</div>
+				</br>
+				</br>
+				<table class="table table-striped tablePick hidden">
+				<thead>
+					<tr>
+						<th>&nbsp;</th>
+						<th>Product</th>
+						<th>Variation</th>
+						<th>Quantity</th>
+						<th>Left in stock</th>
+					</tr>
+				</thead>
+				<tbody class="picklist">
+				</tbody>
+				</table>
+			</div> <!-- pick -->
+		
+			<div class="tab-pane hidden" id="tabPack">
+				<div class="row">
+					<div class="col-sm-3 col-md-3">&nbsp;</div>
+					<div class="col-sm-3 col-md-3"><center><div class="bignumber orders2pack">0</div> <small>Orders</small></center></div>
+					<div class="col-sm-3 col-md-3"><center><div class="bignumber totalordervalue">0</div> <small>Value</small></center></div>
+				</div>
+				</br>
+				</br>
+				<table class="table table-striped tablePack hidden">
+				<thead>
+					<tr>
+						<th>OrderNr</th>
+						<th>Customer</th>
+						<th>Products</th>
+						<th>OrderDate</th>
+						<th>ShippingMethod</th>
+						<th>Notes</th>
+					</tr>
+				</thead>
+				<tbody class="packlist">
+				</tbody>
+				</table>
+			</div> <!-- pack -->
+	</div>
+
+	<div class="modal-notes"></div>
+
+	<!-- jQuery (this is required) -->
+	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+	<!-- Tictail UIKit JavaScript -->
+	<script src="https://sdk.ttcdn.co/tt-uikit-0.11.0.js"></script>
+	<!-- Tictail JavaScript SDK -->
+	<script src="https://sdk.ttcdn.co/tt.0.12.0.js"></script>
+	<!-- Your Own JavaScript -->
+	<script src="app.js"></script>
+	  
+</body>
+</html>
