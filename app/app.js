@@ -10,6 +10,16 @@
 	var packContainer = $('.packlist');
 	var modals = $('.modal-notes');
 	var store_dashboard_url = '';
+	var daystospan = 7;
+
+	Date.prototype.yyyymmdd = function() {         
+									
+			var yyyy = this.getFullYear().toString();                                    
+			var mm = (this.getMonth()+1).toString(); 
+			var dd  = this.getDate().toString();             
+								
+			return yyyy + '-' + (mm[1]?mm:"0"+mm[0]) + '-' + (dd[1]?dd:"0"+dd[0]);
+	};  
 	
 	var sort_by = function(field, reverse, primer){
 
@@ -23,9 +33,15 @@
 		   return a = key(a), b = key(b), reverse * ((a > b) - (b > a));
 		 } 
 	};
+	
+	var DateToday = new Date();
+	var DateSpan = new Date(DateToday.getTime() - daystospan * 24 * 60 * 60 * 1000);
+	var DateSpanText = DateSpan.yyyymmdd();	
 
 	function appStart() {
 		TT.native.loading();
+		DateSpan = new Date(DateToday.getTime() - daystospan * 24 * 60 * 60 * 1000);
+		DateSpanText = DateSpan.yyyymmdd();		
 		picklist = new Array();
 		packlist = new Array();
 		items2pick = 0;
@@ -41,7 +57,7 @@
 
 	function TC_fetchOrders(store) {
 		store_dashboard_url = store.dashboard_url;
-		TT.api.get('/v1/stores/' + store.id + '/orders?completed=false')
+		TT.api.get('/v1/stores/' + store.id + '/orders?completed=false&created_after=' + DateSpanText)
 		  .done(TC_listOrders)
 		  .fail(genericError);
 	}
@@ -199,6 +215,14 @@
 	function genericError() {
 		console.error('Something went wrong');
 	}
+	
+	$( ".daysfilter" ).change(function() {
+		$('#tabPick').addClass('hidden');
+		$('#tabPack').addClass('hidden');
+		daystospan = $( "select option:selected" ).val();
+		appStart();
+	});
+	
 
 	$(".picklink").click(function() {
 		$('.packlink').removeClass('active');
