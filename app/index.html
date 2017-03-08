@@ -5,15 +5,8 @@
   <title>Pick & Pack</title>
   <link rel="stylesheet" href="https://sdk.ttcdn.co/tt-uikit-0.11.0.css">
   <script>
-	function printPickList() {
-	   var divToPrint=document.getElementById("tabPick");
-	   newWin= window.open("");
-	   newWin.document.write(divToPrint.outerHTML);
-	   newWin.print();
-	   newWin.close();
-	}
-	function printPackList() {
-	   var divToPrint=document.getElementById("tabPack");
+	function printList(divID) {
+	   var divToPrint=document.getElementById(divID);
 	   newWin= window.open("");
 	   newWin.document.write(divToPrint.outerHTML);
 	   newWin.print();
@@ -83,9 +76,9 @@
 
 			<div class="tab-pane hidden active" id="tabPick">
 				<div class="row">
-					<div class="col-sm-3 col-md-3">&nbsp;</div>
 					<div class="col-sm-3 col-md-3"><center><div class="bignumber items2pick">0</div> <small>Items</small></center></div>
 					<div class="col-sm-3 col-md-3"><center><div class="bignumber products2pick">0</div> <small>Products</small></center></div>
+					<div class="col-sm-3 col-md-3"><button type="button" class="btn btn-link" onClick="javascript:printList('tabPick')">Print</button></div>
 				</div>
 				</br>
 				</br>
@@ -106,9 +99,9 @@
 		
 			<div class="tab-pane hidden" id="tabPack">
 				<div class="row">
-					<div class="col-sm-3 col-md-3">&nbsp;</div>
 					<div class="col-sm-3 col-md-3"><center><div class="bignumber orders2pack">0</div> <small>Orders</small></center></div>
 					<div class="col-sm-3 col-md-3"><center><div class="bignumber totalordervalue">0</div> <small>Value</small></center></div>
+					<div class="col-sm-3 col-md-3"><button type="button" class="btn btn-link" onClick="javascript:printList('tabPack')">Print</button></div>
 				</div>
 				</br>
 				</br>
