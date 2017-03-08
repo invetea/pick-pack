@@ -4,6 +4,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Pick & Pack</title>
   <link rel="stylesheet" href="https://sdk.ttcdn.co/tt-uikit-0.11.0.css">
+  <script>
+	function printPickList() {
+	   var divToPrint=document.getElementById("tabPick");
+	   newWin= window.open("");
+	   newWin.document.write(divToPrint.outerHTML);
+	   newWin.print();
+	   newWin.close();
+	}
+	function printPackList() {
+	   var divToPrint=document.getElementById("tabPack");
+	   newWin= window.open("");
+	   newWin.document.write(divToPrint.outerHTML);
+	   newWin.print();
+	   newWin.close();
+	}
+  </script>
   <style>
 	.bignumber {
 		font-size: 28px;
