@@ -151,7 +151,7 @@
 				var variation = '';
 				if (picklist[pick].variation != 'none') { variation = picklist[pick].variation;	}
 				var producturl = store_dashboard_url + '/product/' + picklist[pick].slug;
-				$('<tr><td><img src="' + picklist[pick].image + '?size=40"></td><td class="title"><a href="'+ producturl + '" target="_blank">' + picklist[pick].product + '</a></td><td>' + variation + '</td><td>' + picklist[pick].quantity + '</td><td>' + picklist[pick].instock + '</td></tr>').appendTo(pickContainer);
+				$('<tr><td><img src="' + picklist[pick].image + '?size=40" height="40px"></td><td class="title"><a href="'+ producturl + '" target="_blank">' + picklist[pick].product + '</a></td><td>' + variation + '</td><td>' + picklist[pick].quantity + '</td><td>' + picklist[pick].instock + '</td></tr>').appendTo(pickContainer);
 			}
 		}
 	}
